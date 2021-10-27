@@ -1,0 +1,18 @@
+server:
+  port: 80
+spring:
+  application:
+    name: consume-feign-service
+eureka:
+  client:
+    register-with-eureka: false #不把自己向注册中心注册，只做服务的调用
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka,http://eureka7002:7002/eureka
+ribbon:
+  #指的是建立连接所用的时间，适用两个服务器连接所用的时间
+  ConnectTimeout: 60000
+  #指的是建立连接后从服务器读取到可用资源所用的时间
+  ReadTimeout: 60000
+logging:
+  level:
+    com.zm.springcloud.service.PaymentService: debug

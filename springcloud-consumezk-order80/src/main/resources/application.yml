@@ -1,0 +1,8 @@
+server:
+  port: 80
+spring:
+  application:
+    name: springcloud-consumezk-service
+  cloud:
+    zookeeper:
+      connect-string: 192.168.1.7:2181

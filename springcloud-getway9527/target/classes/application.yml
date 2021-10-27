@@ -1,0 +1,35 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: springcloud-getway
+  cloud:
+    gateway:
+      routes:
+        - id: payment_route
+          #uri: http://localhost:8001
+          uri: lb://SPRINGCLOUD-PAYMENT-SERVICE
+          predicates:
+            - Path=/payment/getPaymentById/**
+            #- After=2021-10-22T18:01:20.658+08:00[Asia/Shanghai]
+            #- Cookie=username,zm
+            #- Header=X-request-Id,\d+
+        - id: payment_route2 #路由id，没有规则但必须要唯一，建议服务名
+          #uri: http://localhost:8001 #uri目标地址，匹配后的真正的服务地址
+          uri: lb://SPRINGCLOUD-PAYMENT-SERVICE
+          predicates: #断言，请求必须匹配断言才能路由
+            - Path=/payment/lb/**
+      discovery:
+        locator:
+          enabled: true
+
+
+#配置eureka
+eureka:
+  instance:
+    hostname: eureka-getway
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka

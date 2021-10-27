@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zm.springcloud.mapper.OrderMapper">
+
+    <resultMap id="BaseOrderMap" type="com.zm.springcloud.entities.Order">
+        <id column="id" property="id"></id>
+        <result column="user_id" property="userId"></result>
+        <result column="product_id" property="productId"></result>
+        <result column="count" property="count"></result>
+        <result column="money" property="money"></result>
+        <result column="status" property="status"></result>
+    </resultMap>
+
+    <select id="queryAll" resultMap="BaseOrderMap">
+        select id,user_id,product_id,count,money,status from tb_order
+    </select>
+
+    <insert id="add" parameterType="com.zm.springcloud.entities.Order" keyProperty="id" useGeneratedKeys="true">
+        insert into tb_order (user_id,product_id,count,money,status) values (#{userId},#{productId},#{count},#{money},0)
+    </insert>
+
+    <select id="query" resultType="integer">
+        select status from tb_order where user_id = #{userId} and product_id = #{productId}
+    </select>
+
+    <update id="update">
+        update tb_order set status = #{status} where user_id = #{userId}  and product_id = #{productId}
+    </update>
+
+</mapper>
