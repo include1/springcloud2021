@@ -1,0 +1,14 @@
+server:
+  port: 9901
+spring:
+  application:
+    name: springcloud-nacos-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.1.9:3234
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

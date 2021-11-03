@@ -28,6 +28,10 @@
         <module>springcloud-stream-rabbitmq-provider8801</module>
         <module>springcloud-stream-rabbitmq-consume8802</module>
         <module>springcloud-stream-rabbitmq-consume8803</module>
+        <module>springcloud-nacos-provider9901</module>
+        <module>springcloud-nacos-provider9902</module>
+        <module>springcloud-nacos-consume9903</module>
+        <module>springcloud-nacos-config3377</module>
     </modules>
     <packaging>pom</packaging>
 

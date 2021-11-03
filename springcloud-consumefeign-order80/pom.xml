@@ -12,6 +12,11 @@
     <artifactId>springcloud-consumefeign-order80</artifactId>
 
     <dependencies>
+        <!--添加zipkin-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <dependency>
             <groupId>com.zm.springcloud</groupId>
             <artifactId>springcloud-api-commons</artifactId>

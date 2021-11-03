@@ -14,4 +14,6 @@ public interface PaymentService {
 
     @PostMapping(value = "/payment/create")
     public CommonResult<Payment> create(Payment payment);
+    @GetMapping(value = "/payment/zipkin")
+    String test();
 }

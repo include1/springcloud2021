@@ -42,4 +42,9 @@ public class PaymentController {
             return new CommonResult<Payment>(500, "调用lb（）-查询失败----来自8001端口", null);
         }
     }
+
+    @GetMapping("/zipkin")
+    public String test(){
+        return "payment8001 test zipkin O(∩_∩)O哈哈~";
+    }
 }

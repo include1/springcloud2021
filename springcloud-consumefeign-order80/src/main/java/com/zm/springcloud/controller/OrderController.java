@@ -21,4 +21,9 @@ public class OrderController {
     public CommonResult<Payment> create(@RequestBody Payment payment) {
         return paymentService.create(payment);
     }
+
+    @GetMapping("/consume/zipkin")
+    public String test(){
+        return paymentService.test();
+    }
 }
